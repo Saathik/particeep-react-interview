@@ -1,43 +1,27 @@
 import React from "react";
 import { connect } from "react-redux";
 import MovieCard from "./MovieCard";
-import Select from 'react-select'
 import { getMovieList, getMoviesByVisibilityFilter } from "../redux/selectors";
 import { setFilter } from "../redux/actions";
-import { VISIBILITY_FILTERS } from "../constants";
 
-const Home = ({ movies, options, setFilter }) => {
-    const handleChange = selectedOptions => {
-        setSelectedOptions(selectedOptions);
-        if (selectedOptions.length === 0) {
-            setFilter(VISIBILITY_FILTERS.ALL)
-        }
-        else {
-            setFilter(selectedOptions.map(element => element.value))
-        }
+import Header from './Header';
+import Footer from './Footer';
 
-    }
-
-    const [selectedOptions, setSelectedOptions] = React.useState([]);
+const Home = ({ movies }) => {
     return (
         <div>
-            <Select onChange={handleChange}
-                defaultValue={"all"}
-                isMulti
-                name="category"
-                options={options}
-                value={selectedOptions}
-                className="basic-multi-select"
-                classNamePrefix="select"
-            />
-            < ul className="movie-list" >
-                {movies && movies.length
-                    ? movies.map((movie, index) => {
-                        return <MovieCard key={`movie-${movie.id}`} movie={movie} />;
-                    })
-                    : "No movies, yay!"
-                }
-            </ul >
+            <Header></Header>
+            <div className="main">
+                < ul className="movie-list" >
+                    {movies && movies.length
+                        ? movies.map((movie) => {
+                            return <MovieCard key={`movie-${movie.id}`} movie={movie} />;
+                        })
+                        : "No movies, yay!"
+                    }
+                </ul >
+            </div>
+            <Footer></Footer>
         </div>
     );
 }

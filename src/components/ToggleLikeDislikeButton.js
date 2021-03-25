@@ -15,7 +15,7 @@ const ToggleButtons = ({ movie, addLike, removeLike, addDislike, removeDislike }
     const [vote, setVote] = React.useState('');
 
     const handleChange = (event, newVote) => {
-        debugger
+        
         if ("like" === newVote) {
 
             addLike(movie.id)

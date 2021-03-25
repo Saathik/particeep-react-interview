@@ -9,12 +9,15 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { removeMovie } from "../redux/actions";
+import Ratio from './Ratio';
 
 
 const MovieCard = ({ movie, removeMovie }) => {
     const useStyles = makeStyles({
         root: {
             margin: '1rem',
+            padding: '1rem',
+            backgroundColor: "#E6E6FA",
         },
     });
     const classes = useStyles();
@@ -37,7 +40,9 @@ const MovieCard = ({ movie, removeMovie }) => {
                     <Button size="small" color="secondary" onClick={() => { removeMovie(movie.id) }}>
                         Remove
                     </Button>
+                    
                 </CardActions>
+                <Ratio key={`movie-${movie.id}`} movie={movie}></Ratio>
             </Card>
         </li>
     );
