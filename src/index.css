@@ -16,8 +16,6 @@ img {
     max-height: 300px;
     width: auto;
     overflow: hidden;
-    
-    
 }
 
 .logo{
@@ -34,7 +32,6 @@ li {
     text-align: center;
 }
 
-
 .basic-multi-select{
     width:25%;
     margin-left: auto;
@@ -44,8 +41,6 @@ li {
 .ratio-container{
     display: flex;
 }
-
-
 
 /* header-content */
 /* Add some padding on document's body to prevent the content
@@ -65,3 +60,11 @@ li {
     footer{
         color: white;
     }
+
+.pagination{
+    display: flex;
+    justify-content: center;
+}
+.MuiPaginationItem-icon, .MuiPaginationItem-page, .MuiPaginationItem-ellipsis,.MuiSelect-icon, .MuiSelect-select,.MuiInput-underline:after {
+    color : white!important;
+}
